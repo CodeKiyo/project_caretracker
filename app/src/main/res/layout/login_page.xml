@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/login_caretracker_motto1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/login_caretracker_motto1" />
+
+    <ImageView
+        android:id="@+id/login_caretracker_logo"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@drawable/login_caretracker_logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_identification_layout"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="#49454F"
+        app:cursorColor="#49454F"
+        app:helperTextTextColor="#49454F"
+        app:hintTextColor="#49454F"
+        app:boxStrokeColor="#949494"
+        app:endIconMode="clear_text"
+        app:helperText="Enter your identification"
+        app:helperTextEnabled="true"
+        app:startIconDrawable="@drawable/login_identification_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_identification_input"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_regular"
+            android:textColorHighlight="#949494"
+            android:hint="Identification"
+            android:inputType="number"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_password_layout"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:textColorHint="#49454F"
+        app:boxStrokeColor="#949494"
+        app:cursorColor="#49454F"
+        app:endIconMode="password_toggle"
+        app:helperText="Enter your password"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="#49454F"
+        app:hintTextColor="#49454F"
+        app:startIconCheckable="false"
+        app:startIconDrawable="@drawable/login_password_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_password_input"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overpass_regular"
+            android:hint="Password"
+            android:inputType="text|textPassword"
+            android:textColorHighlight="#949494"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#54E2B0"
+        android:elevation="100dp"
+        android:fontFamily="@font/saxony_serial_bold"
+        android:text="Login"
+        android:textSize="14sp"
+        app:cornerRadius="7dp" />
+
+    <ImageView
+        android:id="@+id/login_caretracker_motto2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/login_caretracker_motto2" />
+
+
+</LinearLayout>
