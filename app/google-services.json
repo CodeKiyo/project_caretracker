@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060220133383",
+    "project_id": "itisdevproject",
+    "storage_bucket": "itisdevproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060220133383:android:2ee21e52ba7bcfebff0aa2",
+        "android_client_info": {
+          "package_name": "com.mobdeve.caretracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAjlnnkiPwB25OSByBdCCndVzHt4OMey0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
