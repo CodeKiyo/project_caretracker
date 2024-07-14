@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="underline">#D8D6D6</color>
+    <color name="underline_darker">#949494</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="LightGreen">#59C87C</color>
+
+    <color name="Default">#49454F</color>
+    <color name="Error">#FFB3261E</color>
+    <color name="Valid">#00BA00</color>
+    <color name="Required">#FF0000</color>
+
+    <color name="gray">#D2D2D2</color>
 </resources>
