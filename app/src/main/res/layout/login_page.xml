@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:backgroundTint="#54E2B0"
+        android:backgroundTint="#006E63"
         android:elevation="100dp"
         android:fontFamily="@font/saxony_serial_bold"
         android:text="Login"
