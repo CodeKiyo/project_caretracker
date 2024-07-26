@@ -26,6 +26,18 @@
             android:name=".TestResultActivity"
             android:exported="true"
             />
+        <activity
+            android:name=".MedInfoActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".MedInfoEditActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".MedInfoAddActivity"
+            android:exported="true"
+            />
     </application>
 
 </manifest>

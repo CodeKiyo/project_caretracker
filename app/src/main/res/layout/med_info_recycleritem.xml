@@ -2,13 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/healthRecord"
         android:layout_width="match_parent"
-        android:layout_height="355dp"
-        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corner_lightgreen2"
         android:orientation="vertical"
         android:padding="16dp">
@@ -23,13 +26,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:fontFamily="@font/geist_bold"
+                android:text="Health Record"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/edit_butt"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_weight="0"
@@ -37,13 +41,237 @@
                 android:backgroundTint="#FF5722" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/delete_butt"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0"
                 android:background="@drawable/delete_icon"
                 android:backgroundTint="#FF0000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/heartRateLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Heart Rate:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/heart_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bloodPressureLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Blood Pressure:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/blood_pressure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bodyTempLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Body Temperature:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/body_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/respRateLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Respiration Rate:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/resp_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/chiefCompLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Chief Complaint:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/chief_comp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/objLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Objectives:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/objective"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/diagLL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Diagnosis:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/diagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/planLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Plan:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/commLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="Comments:"
+                android:textColor="#D7D7D7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/geist_medium"
+                android:text="TextView"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 

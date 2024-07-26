@@ -8,6 +8,10 @@ android {
     namespace = "com.mobdeve.caretracker"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.mobdeve.caretracker"
         minSdk = 24
