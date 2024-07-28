@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corner_lightgreen2"
         android:orientation="vertical"
         android:padding="16dp">
@@ -47,7 +47,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0"
                 android:background="@drawable/delete_icon"
-                android:backgroundTint="#FF0000" />
+                android:backgroundTint="#F44336" />
 
         </LinearLayout>
 
@@ -61,18 +61,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Heart Rate:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/heart_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -86,18 +90,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Blood Pressure:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/blood_pressure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -111,18 +119,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Body Temperature:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/body_temp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -136,18 +148,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Respiration Rate:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/resp_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -161,18 +177,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Chief Complaint:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/chief_comp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -186,18 +206,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Objectives:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/objective"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -211,18 +235,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Diagnosis:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/diagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
@@ -236,18 +264,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Plan:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
         </LinearLayout>
 
         <LinearLayout
@@ -260,18 +292,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/geist_medium"
                 android:text="Comments:"
-                android:textColor="#D7D7D7"
-                android:textSize="16sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FFFFFF"
                 android:fontFamily="@font/geist_medium"
+                android:padding="3dp"
                 android:text="TextView"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </LinearLayout>
 
