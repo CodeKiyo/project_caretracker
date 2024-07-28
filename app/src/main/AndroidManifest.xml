@@ -38,6 +38,18 @@
             android:name=".MedInfoAddActivity"
             android:exported="true"
             />
+        <activity
+            android:name=".PrescriptionActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".PrescriptionAdd"
+            android:exported="true"
+            />
+        <activity
+            android:name=".PrescriptionUpdate"
+            android:exported="true"
+            />
     </application>
 
 </manifest>
