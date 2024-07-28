@@ -13,10 +13,11 @@ class MedInfoEditActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(binding.root) // Ensure this is the correct layout
 
+        val weight = intent.getFloatExtra("weight", 0f).toString()
         val heartRate = intent.getIntExtra("heartRate", 0).toString()
-        val bloodPressure = intent.getFloatExtra("bloodPres", 0f).toString()
+        val bloodPressure = intent.getStringExtra("bloodPres").toString()
         val bodyTemp = intent.getFloatExtra("bodyTemp", 0f).toString()
-        val respRate = intent.getFloatExtra("respRate", 0f).toString()
+        val respRate = intent.getIntExtra("respRate", 0).toString()
 
         val chiefComp = intent.getStringExtra("chiefComp").toString()
         val objectives = intent.getStringExtra("objective").toString()
@@ -24,6 +25,7 @@ class MedInfoEditActivity : AppCompatActivity()  {
         val plan = intent.getStringExtra("plan").toString()
         val comments = intent.getStringExtra("comment").toString()
 
+        binding.editWeight.text = Editable.Factory.getInstance().newEditable(weight)
         binding.editHeartRate.text = Editable.Factory.getInstance().newEditable(heartRate)
         binding.editBloodPress.text = Editable.Factory.getInstance().newEditable(bloodPressure)
         binding.editBodyTemp.text = Editable.Factory.getInstance().newEditable(bodyTemp)

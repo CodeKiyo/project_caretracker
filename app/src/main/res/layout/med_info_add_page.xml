@@ -39,6 +39,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
@@ -57,8 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,8 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -103,8 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -126,8 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,8 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,8 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -195,8 +211,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -218,8 +233,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -241,8 +255,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
-                    android:text="Enter:" />
+                    android:inputType="text" />
 
             </LinearLayout>
 

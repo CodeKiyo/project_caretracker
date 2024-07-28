@@ -6,8 +6,12 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.w3c.dom.Text
 
 class MedInfoViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
+    val date: TextView = itemView.findViewById(R.id.date)
+
+    val weight: TextView = itemView.findViewById(R.id.weight)
     val heartRate: TextView = itemView.findViewById(R.id.heart_rate)
     val bloodPressure: TextView = itemView.findViewById(R.id.blood_pressure)
     val bodyTemp: TextView = itemView.findViewById(R.id.body_temp)
@@ -19,6 +23,7 @@ class MedInfoViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     val plan: TextView = itemView.findViewById(R.id.plan)
     val comments: TextView = itemView.findViewById(R.id.comment)
 
+    val weightLL: LinearLayout = itemView.findViewById(R.id.weightLL)
     val heartRateLL: LinearLayout = itemView.findViewById(R.id.heartRateLL)
     val bloodPressureLL: LinearLayout = itemView.findViewById(R.id.bloodPressureLL)
     val bodyTempLL: LinearLayout = itemView.findViewById(R.id.bodyTempLL)

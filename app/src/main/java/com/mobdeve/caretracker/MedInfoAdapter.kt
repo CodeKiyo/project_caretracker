@@ -19,8 +19,11 @@ class MedInfoAdapter (private val medInfos: List<MedInfoModel>) : RecyclerView.A
     override fun onBindViewHolder(holder: MedInfoViewHolder, position: Int) {
         val medInfo = medInfos[position]
 
+        holder.date.text = medInfo.date
+
+        holder.weight.text = medInfo.weight.toString()
         holder.heartRate.text = medInfo.heartRate.toString()
-        holder.bloodPressure.text = medInfo.bloodPressure.toString()
+        holder.bloodPressure.text = medInfo.bloodPressure
         holder.bodyTemp.text = medInfo.bodyTemp.toString()
         holder.respRate.text = medInfo.respRate.toString()
 
@@ -30,16 +33,19 @@ class MedInfoAdapter (private val medInfos: List<MedInfoModel>) : RecyclerView.A
         holder.plan.text = medInfo.plan
         holder.comments.text = medInfo.comments
 
+        if (medInfo.weight == 0f)
+            holder.weightLL.visibility = View.GONE
+
         if (medInfo.heartRate == 0)
             holder.heartRateLL.visibility = View.GONE
 
-        if (medInfo.bloodPressure == 0f)
+        if (medInfo.bloodPressure == "")
             holder.bloodPressureLL.visibility = View.GONE
 
         if (medInfo.bodyTemp == 0f)
             holder.bodyTempLL.visibility = View.GONE
 
-        if (medInfo.respRate == 0f)
+        if (medInfo.respRate == 0)
             holder.respRateLL.visibility = View.GONE
 
         if (medInfo.chiefComp == "")
@@ -60,6 +66,7 @@ class MedInfoAdapter (private val medInfos: List<MedInfoModel>) : RecyclerView.A
         holder.editButt.setOnClickListener() {
             val intent = Intent(holder.editButt.context, MedInfoEditActivity::class.java)
 
+            intent.putExtra("weight", medInfo.weight)
             intent.putExtra("heartRate", medInfo.heartRate)
             intent.putExtra("bloodPres", medInfo.bloodPressure)
             intent.putExtra("bodyTemp", medInfo.bodyTemp)

@@ -1,10 +1,12 @@
 package com.mobdeve.caretracker
 
 data class MedInfoModel (
+    val date: String,
+    val weight: Float,
     val heartRate: Int,
-    val bloodPressure: Float,
+    val bloodPressure: String,
     val bodyTemp: Float,
-    val respRate: Float,
+    val respRate: Int,
 
     val chiefComp: String,
     val objectives: String,
