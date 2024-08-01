@@ -17,6 +17,13 @@ object MyFirestoreReferences {
     const val PATIENTNATIONALITY_FIELD = "patientNationality"
     const val PATIENTRELIGION_FIELD = "patientReligion"
     const val PATIENTSEX_FIELD = "patientSex"
+    const val RESULTCOMMENTS_FIELD = "resultComments"
+    const val RESULTCOMPONENTS_FIELD = "resultComponents"
+    const val RESULTDATE_FIELD = "resultDate"
+    const val RESULTFINDINGS_FIELD = "resultFindings"
+    const val RESULTIMAGE_FIELD = "resultImage"
+    const val RESULTSTATUS_FIELD = "resultStatus"
+
 
     const val PASSWORD_FIELD = "password"
     const val EMAIL_FIELD = "email"

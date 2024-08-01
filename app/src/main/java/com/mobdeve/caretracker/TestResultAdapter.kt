@@ -17,17 +17,7 @@ class TestResultAdapter(private val testResults: List<TestResultModel>) : Recycl
     }
 
     override fun onBindViewHolder(holder: TestResultViewHolder, position: Int) {
-        val testResult = testResults[position]
-        holder.testType.text = testResult.testType
-        holder.testDate.text = testResult.testDate
-        holder.resultStatus.text = testResult.resultStatus
-        holder.keyFindings.text = testResult.keyFindings
-        holder.testComponents.text = testResult.testComponents
-        holder.comments.text = testResult.comments
-        holder.imageresult.setImageResource(testResult.imageResId ?: R.drawable.default_photo)
-        holder.imageresult.setOnClickListener {
-            showImageDialog(holder.imageresult, testResult.imageResId)
-        }
+        holder.bindData(this.testResults[position])
     }
 
     override fun getItemCount(): Int {

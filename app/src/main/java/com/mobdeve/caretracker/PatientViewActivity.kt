@@ -1,7 +1,12 @@
 package com.mobdeve.caretracker
 
+import TestResultModel
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.mobdeve.caretracker.databinding.PatientPersonalInfoBinding
 
 class PatientViewActivity : AppCompatActivity()  {
@@ -39,6 +44,11 @@ class PatientViewActivity : AppCompatActivity()  {
         this.patientinfoPage.patientReligion.text = intent.getStringExtra(patientReligion).toString()
         this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
         this.patientinfoPage.patientCivilStatus.text = intent.getStringExtra(patientCivilStatus).toString()
+
+        this.patientinfoPage.patientPersonalStatictext1.setOnClickListener {
+            val intent = Intent(this, TestResultActivity::class.java)
+            startActivity(intent)
+        }
 
 
         //this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
