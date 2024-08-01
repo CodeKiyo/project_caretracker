@@ -52,6 +52,11 @@ class PatientViewActivity : AppCompatActivity()  {
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
         }
+        this.patientinfoPage.patientPersonalName.setOnClickListener {
+            val intent = Intent(this, MedInfoActivity::class.java)
+            intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
+            startActivity(intent)
+        }
 
 
         //this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()

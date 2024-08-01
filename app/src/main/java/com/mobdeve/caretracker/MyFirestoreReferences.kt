@@ -23,6 +23,16 @@ object MyFirestoreReferences {
     const val RESULTFINDINGS_FIELD = "resultFindings"
     const val RESULTIMAGE_FIELD = "resultImage"
     const val RESULTSTATUS_FIELD = "resultStatus"
+    const val PATIENTBLOODPRESSURE_FIELD = "patientBloodPressure"
+    const val PATIENTBODYTEMPERATURE_FIELD = "patientBodyTemperature"
+    const val PATIENTCHIEFCOMPLAINT_FIELD = "patientChiefComplaint"
+    const val PATIENTCOMMENTS_FIELD = "patientComments"
+    const val PATIENTDIAGNOSIS_FIELD = "patientDiagnosis"
+    const val PATIENTHEARTRATE_FIELD = "patientHeartRate"
+    const val PATIENTOBJECTIVES_FIELD = "patientObjectives"
+    const val PATIENTPLAN_FIELD = "patientPlan"
+    const val PATIENTRESPIRATIONRATE_FIELD = "patientRespirationRate"
+    const val PATIENTWEIGHT_FIELD = "patientWeight"
 
 
     const val PASSWORD_FIELD = "password"
