@@ -69,7 +69,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/patientSex"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -95,7 +95,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/patientAge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -121,7 +121,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/patientBirthdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -155,7 +155,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/patientNationality"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -181,7 +181,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/patientReligion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -207,7 +207,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/patientCivilStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -278,6 +278,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/patientEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -301,6 +302,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/patientMobileno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -333,6 +335,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/patientEmergencyContactName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
@@ -356,6 +359,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/patientEmergencyContactNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
