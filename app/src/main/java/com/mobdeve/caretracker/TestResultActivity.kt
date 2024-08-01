@@ -36,6 +36,7 @@ class TestResultActivity : AppCompatActivity() {
         const val resultStatus : String = "RESULT_STATUS"
         const val resultComments : String = "RESULT_COMMENTS"
         const val testType : String = "TEST_TYPE"
+        const val patientID : String = "PATIENT_ID"
     }
     private lateinit var testresultsPage: TestResultsPageBinding
     private lateinit var testResultsRecyclerView: RecyclerView
@@ -61,7 +62,7 @@ class TestResultActivity : AppCompatActivity() {
         // Update verticalRecyclerView
         val db = Firebase.firestore
         val patientCollection = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
-        val patientID = "9e1N0S20BNYgeiSvIFRV"
+        val patientID = intent.getStringExtra(patientID).toString()
         val patientRef = patientCollection.document(patientID)
         val testResultsRef = patientRef.collection("Test Results")
         val finalRef = testResultsRef.document("CBC")
@@ -70,7 +71,7 @@ class TestResultActivity : AppCompatActivity() {
         testResultsRef.get().addOnSuccessListener { result ->
             for (document in result!!.documents) {
                 val newData = TestResultModel(
-                    "test",
+                    document.id,
                     document.get(resultDate).toString(),
                     document.get(resultStatus).toString(),
                     document.get(resultFindings).toString(),
@@ -99,16 +100,17 @@ class TestResultActivity : AppCompatActivity() {
         // Update verticalRecyclerView
         val db = Firebase.firestore
         val patientCollection = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
-        val patientID = "9e1N0S20BNYgeiSvIFRV"
+        val patientID = patientID
         val patientRef = patientCollection.document(patientID)
         val testResultsRef = patientRef.collection("Test Results")
         val finalRef = testResultsRef.document("CBC")
         val data = ArrayList<TestResultModel>()
 
+
         testResultsRef.get().addOnSuccessListener { result ->
             for (document in result!!.documents) {
                 val newData = TestResultModel(
-                    "test",
+                    document.id,
                     document.get(resultDate).toString(),
                     document.get(resultStatus).toString(),
                     document.get(resultFindings).toString(),
@@ -116,7 +118,7 @@ class TestResultActivity : AppCompatActivity() {
                     document.get(resultComments).toString(),
                     R.drawable.default_photo)
                 data.add(newData)
-                System.out.println("test")
+                println(resultDate)
             }
             testResultsRecyclerView.adapter = TestResultAdapter(data)
             testResultsRecyclerView.adapter?.notifyDataSetChanged()

@@ -32,6 +32,7 @@ class PatientViewActivity : AppCompatActivity()  {
 
         patientinfoPage = PatientPersonalInfoBinding.inflate(layoutInflater)
         setContentView(patientinfoPage.root)
+        getPatientDocumentIDs()
         // Replaces the username with what the user inputs from the Sign Up Page
         this.patientinfoPage.patientPersonalName.text = intent.getStringExtra(patientName).toString()
         this.patientinfoPage.patientAge.text = intent.getIntExtra(patientAge, 0).toString()
@@ -44,14 +45,41 @@ class PatientViewActivity : AppCompatActivity()  {
         this.patientinfoPage.patientReligion.text = intent.getStringExtra(patientReligion).toString()
         this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
         this.patientinfoPage.patientCivilStatus.text = intent.getStringExtra(patientCivilStatus).toString()
-
         this.patientinfoPage.patientPersonalStatictext1.setOnClickListener {
             val intent = Intent(this, TestResultActivity::class.java)
+            intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
         }
 
 
         //this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
 
+    }
+
+    fun getPatientDocumentIDs() {
+        // Initialize Firestore
+        val db = Firebase.firestore
+        val name = intent.getStringExtra(patientName).toString()
+        var documentId: String? = null
+
+        // Reference to the Patients collection
+        val patientsCollection = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
+
+        patientsCollection
+            .whereEqualTo(MyFirestoreReferences.PATIENTNAME_FIELD, name)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    for (document in querySnapshot.documents) {
+                        this.patientinfoPage.patientID.text = document.id
+                        val test = this.patientinfoPage.patientID.text
+                        println(test)
+                        return@addOnSuccessListener
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting documents: $exception")
+            }
     }
 }
