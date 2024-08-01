@@ -5,5 +5,6 @@ data class TestResultModel(
     val resultStatus: String,
     val keyFindings: String,
     val testComponents: String,
-    val comments: String
+    val comments: String,
+    val imageResId: Int?
 )
