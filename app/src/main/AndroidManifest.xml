@@ -23,6 +23,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".HomeMenuPageActivity"
+            android:exported="true"
+            />
+        <activity
+            android:name=".PatientViewActivity"
+            android:exported="true"
+            />
+        <activity
             android:name=".TestResultActivity"
             android:exported="true"
             />
