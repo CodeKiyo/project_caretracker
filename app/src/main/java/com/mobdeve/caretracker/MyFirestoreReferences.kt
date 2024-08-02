@@ -33,6 +33,7 @@ object MyFirestoreReferences {
     const val PATIENTPLAN_FIELD = "patientPlan"
     const val PATIENTRESPIRATIONRATE_FIELD = "patientRespirationRate"
     const val PATIENTWEIGHT_FIELD = "patientWeight"
+    const val PATIENTDATE_FIELD = "patientDate"
 
 
     const val PASSWORD_FIELD = "password"

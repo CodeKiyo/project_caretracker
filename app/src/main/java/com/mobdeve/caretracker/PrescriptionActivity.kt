@@ -88,6 +88,7 @@ class PrescriptionActivity : AppCompatActivity() {
         })
         binding.prescriptionRecyclerview.adapter = myPrescriptionAdapter
     }
+
     private fun showDeleteConfirmationDialog(prescriptionId: String) {
         AlertDialog.Builder(this)
             .setTitle("Delete Prescription")
