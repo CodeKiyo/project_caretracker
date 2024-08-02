@@ -119,7 +119,7 @@
                     android:layout_margin="16dp"
                     android:background="@drawable/rounded_corner_lightgreen2"
                     android:backgroundTint="#34AE7A"
-                    android:text="Add Record"
+                    android:text="Add Prescription"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
             </LinearLayout>
