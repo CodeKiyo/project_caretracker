@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/urw_geometric_bold"
-                    android:text="Add Health Record"
+                    android:text="Add Prescription"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -58,12 +58,12 @@
                         android:textSize="20sp" />
 
                     <EditText
-                        android:id="@+id/addHeartRate"
+                        android:id="@+id/addMedicine"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter:" />
+                        android:hint="Insert medicine name" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -81,12 +81,12 @@
                         android:textSize="20sp" />
 
                     <EditText
-                        android:id="@+id/addBloodPress"
+                        android:id="@+id/addDosage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter:" />
+                        android:hint="Insert dosage" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,12 +104,12 @@
                         android:textSize="20sp" />
 
                     <EditText
-                        android:id="@+id/addBodyTemp"
+                        android:id="@+id/addSig"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="text"
-                        android:text="Enter:" />
+                        android:hint="Insert sig" />
                 </LinearLayout>
 
                 <Button

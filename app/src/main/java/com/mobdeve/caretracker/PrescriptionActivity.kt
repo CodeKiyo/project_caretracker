@@ -2,32 +2,115 @@ package com.mobdeve.caretracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.mobdeve.caretracker.databinding.PrescriptionPageBinding
 
+class PrescriptionActivity : AppCompatActivity() {
+    companion object {
+        const val PATIENT_ID: String = "PATIENT_ID"
+    }
 
-class PrescriptionActivity : AppCompatActivity(){
-    private lateinit var binding : PrescriptionPageBinding
+    private lateinit var binding: PrescriptionPageBinding
+    private lateinit var myPrescriptionAdapter: PrescriptionAdapter
+    private val prescriptions = ArrayList<PrescriptionModel>() // To hold prescriptions and their IDs
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = PrescriptionPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(binding.root) // Ensure this is the correct layout
+        binding = PrescriptionPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val recyclerView: RecyclerView = findViewById(R.id.prescription_recyclerview)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        // Initialize RecyclerView
+        binding.prescriptionRecyclerview.layoutManager = LinearLayoutManager(this)
 
-        val dataGenerator = PrescriptionDataGenerator()
-        val prescriptions = dataGenerator.generateSampleData()
-        val adapter = PrescriptionAdapter(prescriptions)
-        recyclerView.adapter = adapter
+        // Fetch prescriptions from Firestore
+        fetchPrescriptions()
 
-        binding.addButton.setOnClickListener() {
-            val intent = Intent(this, PrescriptionAdd::class.java)
-
+        // Set up the add button
+        binding.addButton.setOnClickListener {
+            val patientID = intent.getStringExtra(PATIENT_ID).orEmpty()
+            val intent = Intent(this, PrescriptionAdd::class.java).apply {
+                putExtra(PATIENT_ID, patientID)
+            }
             startActivity(intent)
         }
+
+    }
+
+    private fun fetchPrescriptions() {
+        val db = Firebase.firestore
+        val patientID = intent.getStringExtra(PATIENT_ID).orEmpty()
+        val prescriptionsRef = db.collection("Patients").document(patientID).collection("Prescription")
+
+        prescriptionsRef.get()
+            .addOnSuccessListener { result ->
+                if (result != null && !result.isEmpty) {
+                    prescriptions.clear() // Clear existing list
+                    for (document in result.documents) {
+                        val prescription = PrescriptionModel(
+                            document.getString("patientMedicine") ?: "",
+                            document.getString("patientDosage") ?: "",
+                            document.getString("patientSig") ?: "",
+                            document.id // Store the document ID
+                        )
+                        prescriptions.add(prescription)
+                    }
+                    Log.d("PrescriptionActivity", "Fetched ${prescriptions.size} prescriptions")
+                    setupAdapter()
+                } else {
+                    Log.d("PrescriptionActivity", "No prescriptions found")
+                    binding.prescriptionRecyclerview.visibility = View.GONE
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("PrescriptionActivity", "Error getting documents: $exception")
+            }
+    }
+
+    private fun setupAdapter() {
+        myPrescriptionAdapter = PrescriptionAdapter(prescriptions, { prescriptionId ->
+            showDeleteConfirmationDialog(prescriptionId)
+        }, { prescription ->
+            // Handle edit button click
+            val intent = Intent(this, PrescriptionUpdate::class.java).apply {
+                putExtra("prescriptionId", prescription.id)
+                putExtra("medName", prescription.medName)
+                putExtra("dosage", prescription.dosage)
+                putExtra("sig", prescription.sig)
+                putExtra(PATIENT_ID, intent.getStringExtra(PATIENT_ID))
+            }
+            startActivity(intent)
+        })
+        binding.prescriptionRecyclerview.adapter = myPrescriptionAdapter
+    }
+    private fun showDeleteConfirmationDialog(prescriptionId: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Prescription")
+            .setMessage("Are you sure you want to delete this prescription?")
+            .setPositiveButton("Yes") { _, _ ->
+                deletePrescription(prescriptionId)
+            }
+            .setNegativeButton("No", null)
+            .show()
+    }
+
+    private fun deletePrescription(prescriptionId: String) {
+        val patientID = intent.getStringExtra(PATIENT_ID).orEmpty()
+        val db = Firebase.firestore
+        val prescriptionRef = db.collection("Patients").document(patientID).collection("Prescription").document(prescriptionId)
+
+        prescriptionRef.delete()
+            .addOnSuccessListener {
+                Log.d("PrescriptionActivity", "Prescription successfully deleted")
+                fetchPrescriptions() // Refresh the list after deletion
+            }
+            .addOnFailureListener { exception ->
+                Log.e("PrescriptionActivity", "Error deleting document: $exception")
+            }
     }
 }

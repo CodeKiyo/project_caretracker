@@ -57,6 +57,11 @@ class PatientViewActivity : AppCompatActivity()  {
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
         }
+        this.patientinfoPage.patientPersonalStatictext8.setOnClickListener {
+            val intent = Intent(this, PrescriptionActivity::class.java)
+            intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
+            startActivity(intent)
+        }
 
 
         //this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()

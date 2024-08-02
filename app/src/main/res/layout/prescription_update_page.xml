@@ -27,7 +27,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/urw_geometric_bold"
-                    android:text="Edit Health Record"
+                    android:text="Edit Prescription"
                     android:textSize="24sp" />
 
             </LinearLayout>

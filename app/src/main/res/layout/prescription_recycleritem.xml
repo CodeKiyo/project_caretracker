@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="319dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,7 +34,7 @@
                     android:fontFamily="@font/geist_bold"
                     android:text="Prescription"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -43,7 +43,7 @@
                     android:layout_height="28dp"
                     android:layout_weight="0"
                     android:background="@drawable/edit_icon"
-                    android:backgroundTint="#FF5722" />
+                    android:backgroundTint="#F75552" />
 
                 <ImageView
                     android:id="@+id/delete_butt"
@@ -52,7 +52,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="0"
                     android:background="@drawable/delete_icon"
-                    android:backgroundTint="#F44336" />
+                    android:backgroundTint="#F75552" />
 
             </LinearLayout>
 
@@ -66,7 +66,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/geist_medium"
                     android:text="Medicine Name:"
                     android:textColor="#FFFFFF"
@@ -79,9 +79,9 @@
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
                     android:fontFamily="@font/geist_medium"
-                    android:padding="3dp"
+                    android:padding="6dp"
                     android:text="TextView"
-                    android:textColor="#000000" />
+                    android:textColor="#007161" />
 
             </LinearLayout>
 
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/geist_medium"
                     android:text="Dosage:"
                     android:textColor="#FFFFFF"
@@ -108,9 +108,9 @@
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
                     android:fontFamily="@font/geist_medium"
-                    android:padding="3dp"
+                    android:padding="6dp"
                     android:text="TextView"
-                    android:textColor="#000000" />
+                    android:textColor="#007161" />
 
             </LinearLayout>
 
@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/geist_medium"
                     android:text="Sig:"
                     android:textColor="#FFFFFF"
@@ -137,9 +137,9 @@
                     android:layout_height="wrap_content"
                     android:background="#FFFFFF"
                     android:fontFamily="@font/geist_medium"
-                    android:padding="3dp"
+                    android:padding="6dp"
                     android:text="TextView"
-                    android:textColor="#000000" />
+                    android:textColor="#007161" />
 
             </LinearLayout>
 
@@ -148,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="12dp"/>
+                android:paddingTop="12dp" />
 
         </LinearLayout>
     </LinearLayout>
