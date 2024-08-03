@@ -1,15 +1,8 @@
-// TestResultViewHolder.kt
-import android.app.Activity
-import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.mobdeve.caretracker.MyFirestoreReferences
-import com.mobdeve.caretracker.PatientModel
-import com.mobdeve.caretracker.PatientViewActivity
+
 import com.mobdeve.caretracker.R
 
 class TestResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

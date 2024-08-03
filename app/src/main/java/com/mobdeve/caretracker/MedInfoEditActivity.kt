@@ -3,15 +3,17 @@ package com.mobdeve.caretracker
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobdeve.caretracker.databinding.MedInfoEditPageBinding
-import java.text.SimpleDateFormat
-import java.util.Date
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MedInfoEditActivity : AppCompatActivity()  {
     private lateinit var binding : MedInfoEditPageBinding
@@ -127,7 +129,12 @@ class MedInfoEditActivity : AppCompatActivity()  {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun saveChanges() {
+        val currentDate = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+
+        val date = currentDate.format(formatter)
         val weight = binding.editWeight.text.toString().trim()
         val heartRate = binding.editHeartRate.text.toString().trim()
         val bloodPress = binding.editBloodPress.text.toString().trim()
@@ -141,6 +148,7 @@ class MedInfoEditActivity : AppCompatActivity()  {
         val comment = binding.editComment.text.toString().trim()
 
         val medInfo = hashMapOf(
+            "patientDate" to date,
             "patientWeight" to weight,
             "patientHeartRate" to heartRate,
             "patientBloodPressure" to bloodPress,

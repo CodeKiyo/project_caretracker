@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mobdeve.caretracker.TestResultActivity.Companion.patientID
-import com.mobdeve.caretracker.databinding.MedInfoEditPageBinding
 import com.mobdeve.caretracker.databinding.MedInfoPageBinding
-import com.mobdeve.caretracker.databinding.TestResultsPageBinding
-import com.google.firebase.Timestamp
-import com.mobdeve.caretracker.PrescriptionActivity.Companion
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale

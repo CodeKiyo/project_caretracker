@@ -1,4 +1,3 @@
-// TestResultAdapter.kt
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

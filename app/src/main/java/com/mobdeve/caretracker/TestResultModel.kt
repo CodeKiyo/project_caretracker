@@ -1,4 +1,3 @@
-// TestResult.kt
 data class TestResultModel(
     val testType: String,
     val testDate: String,

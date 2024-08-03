@@ -5,10 +5,7 @@ import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 

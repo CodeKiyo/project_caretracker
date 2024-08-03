@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.mobdeve.caretracker.databinding.LoginPageBinding
-import java.io.Console
 
 class MainActivity : AppCompatActivity() {
     private lateinit var loginPage: LoginPageBinding

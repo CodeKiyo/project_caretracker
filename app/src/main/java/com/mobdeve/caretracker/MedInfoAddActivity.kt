@@ -5,7 +5,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
@@ -13,16 +12,15 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobdeve.caretracker.databinding.MedInfoAddPageBinding
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.Date
 
 class MedInfoAddActivity : AppCompatActivity() {
     private lateinit var binding : MedInfoAddPageBinding
     private lateinit var firestore: FirebaseFirestore
     private var patientId: String? = null
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = MedInfoAddPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)

@@ -1,15 +1,10 @@
 package com.mobdeve.caretracker
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.mobdeve.caretracker.PrescriptionActivity.Companion.PATIENT_ID
 
 class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val patientId: String, private val onDeleteClick: (String) -> Unit) : RecyclerView.Adapter<MedInfoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedInfoViewHolder {

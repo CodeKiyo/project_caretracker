@@ -1,13 +1,10 @@
 package com.mobdeve.caretracker
 
-import android.media.Image
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
 
 class MedInfoViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     val recordNo: TextView = itemView.findViewById(R.id.record_counter)
