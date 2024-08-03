@@ -20,14 +20,14 @@ class HomeMenuPageActivity : AppCompatActivity()  {
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.bottom_home -> {
+                R.id.bottom_todo -> {
                     // start activity
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     replaceFragment(HomeMenuPageFragment.newInstance("Franco Carino"))
                     // finish
                     true
                 }
-                R.id.bottom_user -> {
+                R.id.bottom_notifications -> {
                     // start activity
                     //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                     //replaceFragment(HomeMenuPageFragment.newInstance(username))

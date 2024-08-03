@@ -7,6 +7,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="LightGreen">#59C87C</color>
+    <color name="LightGreen2">#00BFB7</color>
 
     <color name="Default">#49454F</color>
     <color name="Error">#FFB3261E</color>

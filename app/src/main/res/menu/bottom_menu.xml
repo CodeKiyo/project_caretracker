@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/bottom_home"
-        android:icon="@drawable/homemenu_home_icon"
+        android:id="@+id/bottom_todo"
+        android:icon="@drawable/homemenu_todo_icon"
         android:title=""
         />
 
     <item
-        android:id="@+id/bottom_user"
-        android:icon="@drawable/homemenu_person_icon"
+        android:id="@+id/bottom_notifications"
+        android:icon="@drawable/homemenu_notifications_icon"
         android:title=""
         />
 
@@ -18,4 +18,5 @@
         android:icon="@drawable/homemenu_settings_icon"
         android:title=""
         />
+
 </menu>
