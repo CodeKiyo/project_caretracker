@@ -53,7 +53,7 @@
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_corner_violet"
+        android:background="@drawable/rounded_corner_bluegreen1"
         android:elevation="4dp"
         android:orientation="horizontal">
 
@@ -64,8 +64,8 @@
             android:layout_gravity="center|start"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/jetbrainsmono_medium"
-            android:text="Edit a Prescription"
-            android:textColor="#D3D2F4"
+            android:text="Editing a Record"
+            android:textColor="#BDE4FB"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/prescription_counter"
+                        android:id="@+id/record_counter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -117,7 +117,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/prescription_date"
+                    android:id="@+id/record_date"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -138,17 +138,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/medicine_static"
+                        android:id="@+id/weight_static"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
-                        android:text="Medicine:"
+                        android:text="Weight:"
                         android:textColor="#1D1D1D"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editMedicine"
+                        android:id="@+id/editWeight"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:ems="20"
@@ -164,17 +164,199 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/dosage_static"
+                        android:id="@+id/heartrate_static"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
-                        android:text="Dosage:"
+                        android:text="Heart Rate:"
                         android:textColor="#1D1D1D"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editDosage"
+                        android:id="@+id/editHeartrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bloodpressure_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Blood Pressure:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editBloodpressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/bodytemperature_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Body Temperature:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editBodytemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/respirationrate_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Respiration Rate:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editRespirationrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/chiefcomplaint_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Chief Complaint:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editChiefcomplaint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/objectives_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Objectives:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editObjectives"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/diagnosis_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Diagnosis:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editDiagnosis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:ems="20"
+                        android:inputType="text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/plan_static"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geist_medium"
+                        android:text="Plan:"
+                        android:textColor="#1D1D1D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editPlan"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:ems="20"
@@ -191,17 +373,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/sig_static"
+                        android:id="@+id/comments_static"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/geist_medium"
-                        android:text="Sig:"
+                        android:text="Comments:"
                         android:textColor="#1D1D1D"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editSig"
+                        android:id="@+id/editComments"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:ems="20"
@@ -221,7 +403,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/editPrescription"
+                        android:id="@+id/editRecord"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

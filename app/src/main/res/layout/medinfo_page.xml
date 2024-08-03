@@ -52,7 +52,7 @@
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_corner_violet"
+        android:background="@drawable/rounded_corner_bluegreen1"
         android:elevation="4dp"
         android:orientation="horizontal">
 
@@ -63,8 +63,8 @@
             android:layout_gravity="center|start"
             android:layout_marginStart="20dp"
             android:fontFamily="@font/jetbrainsmono_medium"
-            android:text="Prescriptions"
-            android:textColor="#D3D2F4"
+            android:text="Medical Information"
+            android:textColor="#BDE4FB"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -73,7 +73,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="177dp"
+            android:layout_marginStart="120dp"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
             android:foregroundTint="#606060"
@@ -86,12 +86,12 @@
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/prescription_add_icon" />
+                app:srcCompat="@drawable/medinfo_add_icon" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/prescriptionRecyclerView"
+        android:id="@+id/medinfoRecyclerView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

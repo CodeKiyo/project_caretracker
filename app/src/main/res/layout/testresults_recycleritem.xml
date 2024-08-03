@@ -32,23 +32,23 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/prescription_counter"
+                    android:id="@+id/result_counter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/geist_medium"
-                    android:text="Prescription #1"
+                    android:text="Test Result #1"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/mi_edit_button"
+                    android:id="@+id/tr_edit_button"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="107dp"
+                    android:layout_marginStart="150dp"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     android:foregroundTint="#606060"
@@ -65,7 +65,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/mi_delete_button"
+                    android:id="@+id/tr_delete_button"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
@@ -87,7 +87,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/prescription_date"
+                android:id="@+id/result_date"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -95,30 +95,68 @@
                 android:text="Date:"
                 android:textColor="#2E2D2D" />
 
+            <ImageView
+                android:id="@+id/testResultImage"
+                android:layout_width="270dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/testresults_result_image" />
+
             <LinearLayout
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/medicine_static"
+                    android:id="@+id/typeofresult_static"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/geist_medium"
-                    android:text="Medicine:"
+                    android:text="Type of Result:"
                     android:textColor="#1D1D1D"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/medicine_value"
+                    android:id="@+id/typeofresult_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/geist_medium"
-                    android:text="80 KG"
+                    android:text="120/70"
+                    android:textColor="#1D1D1D"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/resultstatus_static"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/geist_medium"
+                    android:text="Result Status:"
+                    android:textColor="#1D1D1D"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resultstatus_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/geist_medium"
+                    android:text="61.5 C"
                     android:textColor="#1D1D1D"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -131,22 +169,50 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/dosage_static"
+                    android:id="@+id/keyfindings_static"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/geist_medium"
-                    android:text="Dosage:"
+                    android:text="Key Findings:"
                     android:textColor="#1D1D1D"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/dosage_value"
+                    android:id="@+id/keyfindings_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/geist_medium"
-                    android:text="70 BPM"
+                    android:text="61.5 C"
+                    android:textColor="#1D1D1D"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/testcomponents_static"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/geist_medium"
+                    android:text="Test Components:"
+                    android:textColor="#1D1D1D"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/testcomponents_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/geist_medium"
+                    android:text="34 BPM"
                     android:textColor="#1D1D1D"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -160,17 +226,17 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/sig_static"
+                    android:id="@+id/testresultcomments_static"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/geist_medium"
-                    android:text="Sig:"
+                    android:text="Comments:"
                     android:textColor="#1D1D1D"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/sig_value"
+                    android:id="@+id/testresultcomments_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
