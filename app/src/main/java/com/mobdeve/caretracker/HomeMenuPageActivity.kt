@@ -32,9 +32,12 @@ class HomeMenuPageActivity : AppCompatActivity()  {
                     // finish
                     true
                 }
-//                R.id.bottom_settings -> {
-//
-//                }
+                R.id.bottom_settings -> {
+                    // start activity
+                    replaceFragment(SettingsPageFragment.newInstance("Franco Carino"))
+                    // finish
+                    true
+                }
                 else -> false
             }
         }
