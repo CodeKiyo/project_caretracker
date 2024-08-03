@@ -3,15 +3,19 @@ package com.mobdeve.caretracker
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobdeve.caretracker.databinding.MedInfoAddPageBinding
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Date
 
 class MedInfoAddActivity : AppCompatActivity() {
@@ -109,8 +113,12 @@ class MedInfoAddActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createHealthRec() {
-        val date = SimpleDateFormat("MM/dd/yyyy").format(Date()).toString()
+        val currentDate = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+
+        val date = currentDate.format(formatter)
         val weight = binding.addWeight.text.toString().trim()
         val heartRate = binding.addHeartRate.text.toString().trim()
         val bloodPress = binding.addBloodPress.text.toString().trim()
