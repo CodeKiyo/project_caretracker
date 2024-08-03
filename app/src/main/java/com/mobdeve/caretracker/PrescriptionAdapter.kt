@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.caretracker.databinding.PrescriptionRecycleritemBinding
 
@@ -33,7 +34,10 @@ class PrescriptionAdapter(
     override fun getItemCount(): Int = prescriptions.size
 
     class PrescriptionViewHolder(val binding: PrescriptionRecycleritemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val prescriptionNo: TextView = itemView.findViewById(R.id.prescription_counter)
         fun bind(prescription: PrescriptionModel) {
+            this.prescriptionNo.text = "Prescription #" + prescription.prescriptionNo
+            binding.prescriptionDate.text = prescription.prescriptionDate
             binding.medName.text = prescription.medName
             binding.dosage.text = prescription.dosage
             binding.sig.text = prescription.sig

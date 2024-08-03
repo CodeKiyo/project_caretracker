@@ -1,11 +1,15 @@
 package com.mobdeve.caretracker
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobdeve.caretracker.databinding.PrescriptionAddPageBinding
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class PrescriptionAdd : AppCompatActivity() {
     private lateinit var binding: PrescriptionAddPageBinding
@@ -36,7 +40,11 @@ class PrescriptionAdd : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun savePrescription() {
+        val currentDate = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
+        val prescriptionDate = currentDate.format(formatter)
         // Retrieve user input
         val medicineName = binding.addMedicine.text.toString().trim()
         val dosage = binding.addDosage.text.toString().trim()
@@ -50,6 +58,7 @@ class PrescriptionAdd : AppCompatActivity() {
 
         // Create a map for the prescription data
         val prescription = hashMapOf(
+            "prescriptionDate" to prescriptionDate,
             "patientMedicine" to medicineName,
             "patientDosage" to dosage,
             "patientSig" to sig

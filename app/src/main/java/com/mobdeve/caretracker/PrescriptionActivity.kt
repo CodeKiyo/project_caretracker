@@ -57,6 +57,8 @@ class PrescriptionActivity : AppCompatActivity() {
                     prescriptions.clear() // Clear existing list
                     for (document in result.documents) {
                         val prescription = PrescriptionModel(
+                            result.documents.indexOf(document) + 1,
+                            document.getString("prescriptionDate") ?: "",
                             document.getString("patientMedicine") ?: "",
                             document.getString("patientDosage") ?: "",
                             document.getString("patientSig") ?: "",
@@ -82,6 +84,7 @@ class PrescriptionActivity : AppCompatActivity() {
         }, { prescription ->
             // Handle edit button click
             val intent = Intent(this, PrescriptionUpdate::class.java).apply {
+                putExtra("prescriptionDate", prescription.prescriptionDate)
                 putExtra("prescriptionId", prescription.id)
                 putExtra("medName", prescription.medName)
                 putExtra("dosage", prescription.dosage)
