@@ -4,6 +4,7 @@ object MyFirestoreReferences {
     const val USERS_COLLECTION = "Users"
     const val PATIENT_COLLECTION = "Patients"
     const val NAME_FIELD = "Name"
+
     const val PATIENTNAME_FIELD = "patientName"
     const val PATIENTAGE_FIELD = "patientAge"
     const val PATIENTROOM_FIELD = "patientRoom"
@@ -17,12 +18,14 @@ object MyFirestoreReferences {
     const val PATIENTNATIONALITY_FIELD = "patientNationality"
     const val PATIENTRELIGION_FIELD = "patientReligion"
     const val PATIENTSEX_FIELD = "patientSex"
+
     const val RESULTCOMMENTS_FIELD = "resultComments"
     const val RESULTCOMPONENTS_FIELD = "resultComponents"
     const val RESULTDATE_FIELD = "resultDate"
     const val RESULTFINDINGS_FIELD = "resultFindings"
     const val RESULTIMAGE_FIELD = "resultImage"
     const val RESULTSTATUS_FIELD = "resultStatus"
+
     const val PATIENTBLOODPRESSURE_FIELD = "patientBloodPressure"
     const val PATIENTBODYTEMPERATURE_FIELD = "patientBodyTemperature"
     const val PATIENTCHIEFCOMPLAINT_FIELD = "patientChiefComplaint"
@@ -36,17 +39,4 @@ object MyFirestoreReferences {
     const val PATIENTDATE_FIELD = "patientDate"
 
 
-    const val PASSWORD_FIELD = "password"
-    const val EMAIL_FIELD = "email"
-    const val BOOKMARKS_FIELD = "Bookmarked"
-    const val BIRTHDATE_FIELD = "birthdate"
-    const val DESTINATIONS_COLLECTION = "Destinations"
-    const val DESTNAME_FIELD = "destName"
-    const val DESTIMAGE_FIELD = "destImage"
-    const val DESTDESCRIPTION_FIELD = "destDescription"
-    const val DESTCITY_FIELD = "destCity"
-    const val DESTCATEGORY_FIELD = "destCategory"
-    const val BOOKMARKAMOUNT_FIELD = "numOfBookmarks"
-    const val LATITUDE_FIELD = "latitude"
-    const val LONGITUDE_FIELD = "longitude"
 }

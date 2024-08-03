@@ -11,15 +11,21 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.mobdeve.caretracker.MedInfoActivity.Companion.PATIENT_ID
 import com.mobdeve.caretracker.databinding.MedInfoEditPageBinding
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Date
 
 class MedInfoEditActivity : AppCompatActivity()  {
     private lateinit var binding : MedInfoEditPageBinding
     private lateinit var firestore: FirebaseFirestore
     private var recordId: String? = null
     private var patientId: String? = null
+    private var userId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = MedInfoEditPageBinding.inflate(layoutInflater)
@@ -30,6 +36,7 @@ class MedInfoEditActivity : AppCompatActivity()  {
 
         recordId = intent.getStringExtra("medinfoId")
         patientId = intent.getStringExtra(MedInfoActivity.PATIENT_ID)
+        userId = intent.getStringExtra(MedInfoActivity.USER_ID)
 
         val weight = intent.getStringExtra(MyFirestoreReferences.PATIENTWEIGHT_FIELD).toString()
         val heartRate = intent.getStringExtra(MyFirestoreReferences.PATIENTHEARTRATE_FIELD).toString()
@@ -169,16 +176,50 @@ class MedInfoEditActivity : AppCompatActivity()  {
             .document(recordId!!)
             .set(medInfo)
             .addOnSuccessListener {
-                Toast.makeText(this, "Health Record added successfully", Toast.LENGTH_SHORT).show()
+                val db = Firebase.firestore
 
-                val intent = Intent(this, MedInfoActivity::class.java).apply {
-                    putExtra(MedInfoActivity.PATIENT_ID, patientId)
-                    // Use flags to clear the back stack
-                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
+                val patientCollection = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
+                val patientRef = patientCollection.document(intent.getStringExtra(PATIENT_ID).toString())
 
-                startActivity(intent)
-                finish() // Close the activity
+                patientRef.get()
+                    .addOnSuccessListener { result ->
+                        val firestore = FirebaseFirestore.getInstance()
+
+                        val notInfo = hashMapOf(
+                            "date" to SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(
+                                Date()
+                            ).toString(),
+                            "type" to "Medical Information",
+                            "name" to result.get("patientName").toString(),
+                            "oper" to "Edited"
+                        )
+
+                        firestore.collection("Users")
+                            .document(userId!!)
+                            .collection("Notification")
+                            .add(notInfo)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Health Record edited successfully", Toast.LENGTH_SHORT).show()
+
+                                val intent = Intent(this, MedInfoActivity::class.java).apply {
+                                    putExtra(MedInfoActivity.PATIENT_ID, patientId)
+                                    putExtra(MedInfoActivity.USER_ID, userId)
+                                    // Use flags to clear the back stack
+                                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                }
+
+                                startActivity(intent)
+                                finish() // Close the activity
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(
+                                    this,
+                                    "Error adding health record: ${e.localizedMessage}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                e.printStackTrace()  // Log the stack trace for debugging
+                            }
+                    }
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error adding health record: ${e.localizedMessage}", Toast.LENGTH_LONG).show()

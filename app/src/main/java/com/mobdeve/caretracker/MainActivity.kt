@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         val loginButton = loginPage.loginButton1
 
-        loginButton.setOnClickListener{
+        loginButton.setOnClickListener {
             val intentToMainMenuViaSkip = Intent(this, HomeMenuPageActivity::class.java)
-            //intentToMainMenuViaSkip.putExtra(IntentKeys.USERNAME.name, "Guest")
+            intentToMainMenuViaSkip.putExtra("username", this.loginPage.loginIdentificationInput.text)
             startActivity(intentToMainMenuViaSkip)
             finish()
         }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class PatientViewHolder(itemView: View, private val username: String): RecyclerView.ViewHolder(itemView) {
+class PatientViewHolder(itemView: View, private val username: String, private val userId: String): RecyclerView.ViewHolder(itemView) {
     private val name: TextView = itemView.findViewById(R.id.hm_patientlist_name)
     private val age: TextView = itemView.findViewById(R.id.hm_patientlist_age_number)
     private val room: TextView = itemView.findViewById(R.id.hm_patientlist_room_number)
@@ -59,7 +59,7 @@ class PatientViewHolder(itemView: View, private val username: String): RecyclerV
             intentToViewItem.putExtra("PATIENT_RELIGION", model.patientReligion)
             intentToViewItem.putExtra("PATIENT_SEX", model.patientSex)
             intentToViewItem.putExtra("PATIENT_CIVILSTATUS", model.patientCivilStatus)
-            intentToViewItem.putExtra("username", username)
+            intentToViewItem.putExtra("USER_ID", userId)
             (itemView.context as? Activity)?.startActivity(intentToViewItem, null)
         }
     }

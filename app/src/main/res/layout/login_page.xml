@@ -47,9 +47,9 @@
             android:layout_width="272dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/overpass_regular"
-            android:textColorHighlight="#949494"
             android:hint="Identification"
             android:inputType="number"
+            android:textColorHighlight="#949494"
             android:textSize="12sp" />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -3,9 +3,11 @@ package com.mobdeve.caretracker
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.mobdeve.caretracker.MedInfoActivity.Companion
 import com.mobdeve.caretracker.databinding.PatientPersonalInfoBinding
 
 class PatientViewActivity : AppCompatActivity()  {
@@ -22,9 +24,9 @@ class PatientViewActivity : AppCompatActivity()  {
         const val patientSex : String = "PATIENT_SEX"
         const val patientCivilStatus : String = "PATIENT_CIVILSTATUS"
         const val patientRoom : String = "PATIENT_ROOM"
-        const val username : String = "username"
     }
     private lateinit var patientinfoPage: PatientPersonalInfoBinding
+    private lateinit var userId : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,9 @@ class PatientViewActivity : AppCompatActivity()  {
         patientinfoPage = PatientPersonalInfoBinding.inflate(layoutInflater)
         setContentView(patientinfoPage.root)
         getPatientDocumentIDs()
+
+        userId = intent.getStringExtra("USER_ID").toString()
+
         // Replaces the username with what the user inputs from the Sign Up Page
         this.patientinfoPage.patientPersonalName.text = intent.getStringExtra(patientName).toString()
         this.patientinfoPage.patientAge.text = intent.getIntExtra(patientAge, 0).toString()
@@ -47,16 +52,19 @@ class PatientViewActivity : AppCompatActivity()  {
         this.patientinfoPage.patientTestresults.setOnClickListener {
             val intent = Intent(this, TestResultActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
         this.patientinfoPage.patientMedinfo.setOnClickListener {
             val intent = Intent(this, MedInfoActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
         this.patientinfoPage.patientPrescription.setOnClickListener {
             val intent = Intent(this, PrescriptionActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
+            intent.putExtra("USER_ID", userId)
             startActivity(intent)
         }
         this.patientinfoPage.backbutton.setOnClickListener {

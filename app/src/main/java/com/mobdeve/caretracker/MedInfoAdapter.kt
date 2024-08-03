@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val patientId: String, private val onDeleteClick: (String) -> Unit) : RecyclerView.Adapter<MedInfoViewHolder>() {
+class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val patientId: String, private val onDeleteClick: (String, String) -> Unit, private val userId: String) : RecyclerView.Adapter<MedInfoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedInfoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.med_info_recycleritem, parent, false)
         return MedInfoViewHolder(view)
@@ -65,12 +65,13 @@ class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val pati
                 putExtra(MyFirestoreReferences.PATIENTPLAN_FIELD, medInfo.patientPlan)
                 putExtra(MyFirestoreReferences.PATIENTCOMMENTS_FIELD, medInfo.patientComments)
                 putExtra("PATIENT_ID", patientId)
+                putExtra("USER_ID", userId)
             }
             holder.editButt.context.startActivity(intent)
         }
 
         holder.delButt.setOnClickListener() {
-            onDeleteClick(medInfo.id)
+            onDeleteClick(medInfo.id, userId)
         }
     }
 }
