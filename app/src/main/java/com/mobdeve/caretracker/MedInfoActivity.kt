@@ -93,11 +93,11 @@ class MedInfoActivity : AppCompatActivity() {
                         val localDate2 = LocalDate.parse(date2, formatter)
                         localDate2.compareTo(localDate1)
                     })
-                    for (date in dataDate) {
+                    for ((index, date) in dataDate.withIndex()) {
                         for (document in result!!.documents) {
                             if(document.get("patientDate").toString() == date) {
                                 val newData = MedInfoModel(
-                                    result.documents.indexOf(document) + 1,
+                                    index + 1,
                                     document.get(MyFirestoreReferences.PATIENTDATE_FIELD).toString(),
                                     document.get(MyFirestoreReferences.PATIENTWEIGHT_FIELD).toString(),
                                     document.get(MyFirestoreReferences.PATIENTHEARTRATE_FIELD).toString(),

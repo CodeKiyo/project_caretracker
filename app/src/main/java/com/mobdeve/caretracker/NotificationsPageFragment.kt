@@ -15,10 +15,10 @@ class NotificationsPageFragment : Fragment(R.layout.homemenu_notification_list_f
         const val TAG = "NotificationsPageFragment"
         private const val USER_ID = "USER_ID"
 
-        fun newInstance(username: String): HomeMenuPageFragment {
+        fun newInstance(username: String): NotificationsPageFragment {
             val args = Bundle()
             args.putString(USER_ID, username)
-            return HomeMenuPageFragment().apply {
+            return NotificationsPageFragment().apply {
                 arguments = args
             }
         }

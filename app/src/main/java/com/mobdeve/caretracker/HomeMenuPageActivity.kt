@@ -30,7 +30,7 @@ class HomeMenuPageActivity : AppCompatActivity()  {
                 R.id.bottom_notifications -> {
                     // start activity
                     //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-                    //replaceFragment(HomeMenuPageFragment.newInstance(username))
+                    replaceFragment(NotificationsPageFragment.newInstance("Franco Carino"))
                     // finish
                     true
                 }
