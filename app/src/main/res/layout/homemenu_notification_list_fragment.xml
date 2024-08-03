@@ -21,14 +21,15 @@
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
             android:foregroundTint="#606060"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="3dp">
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp">
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/header_caretracker_back" />
+                app:srcCompat="@drawable/header_caretracker_menu" />
         </androidx.cardview.widget.CardView>
 
         <ImageView
@@ -45,35 +46,25 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginStart="40dp"
+            android:layout_weight="1"
             app:srcCompat="@drawable/header_caretracker_logo" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_corner_sand"
-        android:elevation="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/patient_medical_statictext1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/jetbrainsmono_medium"
-            android:text="Test Results"
-            android:textColor="#E1D4C1"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/homemenu_patient_list_statictext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/urw_geometric_bold"
+        android:text="Notification History"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/testresultsRecyclerView"
+        android:id="@+id/notifRecyclerView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
+        android:layout_gravity="center" />
 </LinearLayout>

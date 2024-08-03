@@ -69,7 +69,7 @@
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/medinfo_add_button"
+            android:id="@+id/addButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -91,7 +91,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/prescriptionRecyclerView"
+        android:id="@+id/prescription_recyclerview"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
