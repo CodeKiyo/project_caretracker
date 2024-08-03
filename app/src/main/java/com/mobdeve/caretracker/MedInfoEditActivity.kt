@@ -56,6 +56,9 @@ class MedInfoEditActivity : AppCompatActivity()  {
         binding.saveButt.setOnClickListener() {
             saveChanges()
         }
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
 
         val weightE = binding.editWeight
         val heartRateE = binding.editHeartRate

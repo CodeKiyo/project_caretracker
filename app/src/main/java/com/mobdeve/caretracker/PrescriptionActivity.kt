@@ -40,6 +40,10 @@ class PrescriptionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.backbutton.setOnClickListener() {
+            finish()
+        }
+
     }
 
     private fun fetchPrescriptions() {

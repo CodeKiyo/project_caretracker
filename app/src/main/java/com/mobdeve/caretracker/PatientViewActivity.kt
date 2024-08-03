@@ -47,20 +47,23 @@ class PatientViewActivity : AppCompatActivity()  {
         this.patientinfoPage.patientReligion.text = intent.getStringExtra(patientReligion).toString()
         this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
         this.patientinfoPage.patientCivilStatus.text = intent.getStringExtra(patientCivilStatus).toString()
-        this.patientinfoPage.patientPersonalStatictext1.setOnClickListener {
+        this.patientinfoPage.patientTestresults.setOnClickListener {
             val intent = Intent(this, TestResultActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
         }
-        this.patientinfoPage.patientPersonalName.setOnClickListener {
+        this.patientinfoPage.patientMedinfo.setOnClickListener {
             val intent = Intent(this, MedInfoActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
         }
-        this.patientinfoPage.patientPersonalStatictext8.setOnClickListener {
+        this.patientinfoPage.patientPrescription.setOnClickListener {
             val intent = Intent(this, PrescriptionActivity::class.java)
             intent.putExtra("PATIENT_ID", this.patientinfoPage.patientID.text)
             startActivity(intent)
+        }
+        this.patientinfoPage.backbutton.setOnClickListener {
+            finish()
         }
 
 

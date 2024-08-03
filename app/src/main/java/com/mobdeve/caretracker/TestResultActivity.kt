@@ -87,6 +87,10 @@ class TestResultActivity : AppCompatActivity() {
             println("Error getting documents: $exception")
         }
 
+        testresultsPage.backbutton.setOnClickListener() {
+            finish()
+        }
+
     }
 
     fun updateView() {

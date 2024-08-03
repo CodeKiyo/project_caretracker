@@ -38,6 +38,10 @@ class MedInfoAddActivity : AppCompatActivity() {
             createHealthRec()
         }
 
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
+
         val weight = binding.addWeight
         val heartRate = binding.addHeartRate
         val bloodPress = binding.addBloodPress

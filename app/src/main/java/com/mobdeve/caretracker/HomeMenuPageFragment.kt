@@ -77,31 +77,44 @@ class HomeMenuPageFragment : Fragment(R.layout.homemenu_patient_list_fragment) {
         val patientsRef = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
         val usersRef = db.collection(MyFirestoreReferences.USERS_COLLECTION)
         val data = ArrayList<PatientModel>()
+        val patientList = ArrayList<String>()
 
-        patientsRef.get().addOnSuccessListener { result ->
+        usersRef.get().addOnSuccessListener { result ->
             for (document in result!!.documents) {
-                val newData = PatientModel(
-                    document.get(patientName).toString(),
-                    document.get(patientAge).toString().toInt(),
-                    document.get(patientRoom).toString().toInt(),
-                    document.get(patientBirthdate).toString(),
-                    document.get(patientCivilStatus).toString(),
-                    document.get(patientECN).toString(),
-                    document.get(patientECNo).toString(),
-                    document.get(patientEmail).toString(),
-                    document.get(patientMobileno).toString(),
-                    document.get(patientNationality).toString(),
-                    document.get(patientReligion).toString(),
-                    document.get(patientSex).toString())
-                data.add(newData)
-
-                System.out.println("test")
+                val newData = document.get("patientList") as? ArrayList<String>
+                if(newData != null) {
+                    patientList.addAll(newData)
+                }
             }
-            homemenuPatientListRecycler.adapter = PatientAdapter(data, "Franco Carino")
-            homemenuPatientListRecycler.adapter?.notifyDataSetChanged()
+            for(element in patientList) {
+                patientsRef
+                    .whereEqualTo(MyFirestoreReferences.PATIENTNAME_FIELD, element)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result!!.documents) {
+                            val newData = PatientModel(
+                                document.get(patientName).toString(),
+                                document.get(patientAge).toString().toInt(),
+                                document.get(patientRoom).toString().toInt(),
+                                document.get(patientBirthdate).toString(),
+                                document.get(patientCivilStatus).toString(),
+                                document.get(patientECN).toString(),
+                                document.get(patientECNo).toString(),
+                                document.get(patientEmail).toString(),
+                                document.get(patientMobileno).toString(),
+                                document.get(patientNationality).toString(),
+                                document.get(patientReligion).toString(),
+                                document.get(patientSex).toString())
+                            data.add(newData)
+                        }
+                        homemenuPatientListRecycler.adapter = PatientAdapter(data, "Franco Carino")
+                        homemenuPatientListRecycler.adapter?.notifyDataSetChanged()
+                    }.addOnFailureListener { exception ->
+                        println("Error getting documents: $exception")
+                    }
+            }
         }.addOnFailureListener { exception ->
             println("Error getting documents: $exception")
         }
     }
-
 }

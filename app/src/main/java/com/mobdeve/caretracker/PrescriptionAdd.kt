@@ -31,6 +31,9 @@ class PrescriptionAdd : AppCompatActivity() {
         binding.saveButt.setOnClickListener {
             savePrescription()
         }
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun savePrescription() {

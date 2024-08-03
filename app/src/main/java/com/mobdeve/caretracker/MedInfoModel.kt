@@ -3,6 +3,7 @@ package com.mobdeve.caretracker
 import com.google.firebase.Timestamp
 
 data class MedInfoModel (
+    val recordNo: Int,
     val patientDate: String,
     val patientWeight: String,
     val patientHeartRate: String,

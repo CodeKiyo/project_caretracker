@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 
 class MedInfoViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
+    val recordNo: TextView = itemView.findViewById(R.id.record_counter)
     val patientDate: TextView = itemView.findViewById(R.id.date)
     val patientBloodPressure: TextView = itemView.findViewById(R.id.blood_pressure)
     val patientBodyTemperature: TextView = itemView.findViewById(R.id.body_temp)
@@ -36,6 +37,7 @@ class MedInfoViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     val commLL: LinearLayout = itemView.findViewById(R.id.commLL)
 
     fun bindData(model: MedInfoModel) {
+        this.recordNo.text = "Record #" + model.recordNo
         this.patientDate.text = model.patientDate
         this.patientBloodPressure.text = model.patientBloodPressure
         this.patientBodyTemperature.text = model.patientBodyTemperature + " °C"
