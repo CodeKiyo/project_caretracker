@@ -28,8 +28,8 @@ class MedInfoAddActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = MedInfoAddPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = MedInfoAddPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firestore = FirebaseFirestore.getInstance()
