@@ -16,13 +16,13 @@ class SettingsPageFragment : Fragment(R.layout.homemenu_settings_fragment) {
     companion object{
         const val TAG = "SettingsPageFragment"
         private const val USER_ID = "USER_ID"
+    }
 
-        fun newInstance(username: String): SettingsPageFragment {
-            val args = Bundle()
-            args.putString(USER_ID, username)
-            return SettingsPageFragment().apply {
-                arguments = args
-            }
+    fun newInstance(username: String): SettingsPageFragment {
+        val args = Bundle()
+        args.putString(USER_ID, username)
+        return SettingsPageFragment().apply {
+            arguments = args
         }
     }
 

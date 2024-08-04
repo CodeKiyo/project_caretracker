@@ -1,6 +1,6 @@
 package com.mobdeve.caretracker
 
-class NotifModel (
+data class NotificationModel (
     val date: String,
     val name: String,
     val oper: String,

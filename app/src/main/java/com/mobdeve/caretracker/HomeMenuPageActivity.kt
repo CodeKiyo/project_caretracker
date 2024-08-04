@@ -7,11 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.mobdeve.caretracker.PatientViewActivity.Companion.patientName
 import com.mobdeve.caretracker.databinding.HomemenuPageBinding
 
 class HomeMenuPageActivity : AppCompatActivity()  {
     companion object {
-        const val ARG_USERNAME: String = "username"
+        const val userID: String = "USER_ID"
     }
 
     private lateinit var mainmenuPage: HomemenuPageBinding
@@ -19,6 +20,8 @@ class HomeMenuPageActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         mainmenuPage = HomemenuPageBinding.inflate(layoutInflater)
         setContentView(mainmenuPage.root)
+
+
 
         val db = Firebase.firestore
         val usersRef = db.collection(MyFirestoreReferences.USERS_COLLECTION)
@@ -40,6 +43,8 @@ class HomeMenuPageActivity : AppCompatActivity()  {
         // The Code for Bottom Navigation
         val bottomNavigationView = mainmenuPage.BottomNavigation
 
+        val id = intent.getStringExtra(userID).toString()
+
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bottom_todo -> {
@@ -52,14 +57,13 @@ class HomeMenuPageActivity : AppCompatActivity()  {
                 R.id.bottom_notifications -> {
                     // start activity
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-                    replaceFragment(HomeMenuNotifFragment().newInstance("Franco Carino", userId))
+                    replaceFragment(NotificationsPageFragment().newInstance(id))
                     // finish
                     true
                 }
                 R.id.bottom_settings -> {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-                    replaceFragment(HomeMenuSettingFragment().newInstance("Franco Carino", userId))
-
+                    replaceFragment(SettingsPageFragment().newInstance("Franco Carino"))
                     true
                 }
                 else -> false

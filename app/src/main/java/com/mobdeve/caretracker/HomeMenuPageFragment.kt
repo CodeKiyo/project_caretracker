@@ -98,8 +98,6 @@ class HomeMenuPageFragment : Fragment(R.layout.homemenu_patient_list_fragment) {
                     document.get(patientReligion).toString(),
                     document.get(patientSex).toString())
                 data.add(newData)
-
-                System.out.println("test")
             }
             homemenuPatientListRecycler.adapter = PatientAdapter(data, arguments?.getString(ARG_USERNAME).toString(), arguments?.getString(USER_ID).toString())
             homemenuPatientListRecycler.adapter?.notifyDataSetChanged()

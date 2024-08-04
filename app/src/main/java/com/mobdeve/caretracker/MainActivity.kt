@@ -2,6 +2,7 @@ package com.mobdeve.caretracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,8 +29,10 @@ class MainActivity : AppCompatActivity() {
         val loginButton = loginPage.loginButton1
 
         loginButton.setOnClickListener {
+            val userid = this.loginPage.loginIdentificationInput.text.toString()
             val intentToMainMenuViaSkip = Intent(this, HomeMenuPageActivity::class.java)
-            intentToMainMenuViaSkip.putExtra("username", this.loginPage.loginIdentificationInput.text)
+            intentToMainMenuViaSkip.putExtra("USER_ID", userid)
+            println("Login button setonclicklistener id = " + userid)
             startActivity(intentToMainMenuViaSkip)
             finish()
         }
