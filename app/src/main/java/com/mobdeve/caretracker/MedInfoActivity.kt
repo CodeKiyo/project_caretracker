@@ -50,6 +50,10 @@ class MedInfoActivity : AppCompatActivity() {
             intent.putExtra(USER_ID, userID)
             startActivity(intent)
         }
+
+        medinfoPage.backbutton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun fetchMedInfo () {
