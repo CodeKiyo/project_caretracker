@@ -34,9 +34,12 @@ class PrescriptionActivity : AppCompatActivity() {
 
         // Set up the add button
         binding.addButton.setOnClickListener {
+
             val patientID = intent.getStringExtra(PATIENT_ID).orEmpty()
+            val userID = intent.getStringExtra(USER_ID)
             val intent = Intent(this, PrescriptionAdd::class.java).apply {
                 putExtra(PATIENT_ID, patientID)
+                putExtra(USER_ID, userID)
             }
             startActivity(intent)
         }
