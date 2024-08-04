@@ -14,6 +14,7 @@ import com.mobdeve.caretracker.databinding.PrescriptionPageBinding
 class PrescriptionActivity : AppCompatActivity() {
     companion object {
         const val PATIENT_ID: String = "PATIENT_ID"
+        const val USER_ID: String = "USER_ID"
     }
 
     private lateinit var binding: PrescriptionPageBinding
@@ -71,6 +72,7 @@ class PrescriptionActivity : AppCompatActivity() {
                 } else {
                     Log.d("PrescriptionActivity", "No prescriptions found")
                     binding.prescriptionRecyclerview.visibility = View.GONE
+
                 }
             }
             .addOnFailureListener { exception ->
