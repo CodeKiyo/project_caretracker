@@ -1,16 +1,9 @@
-import android.animation.Animator
-import android.animation.ObjectAnimator
-import android.graphics.Matrix
-import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
-
 import com.mobdeve.caretracker.R
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 class TestResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val testType: TextView = itemView.findViewById(R.id.test_type)

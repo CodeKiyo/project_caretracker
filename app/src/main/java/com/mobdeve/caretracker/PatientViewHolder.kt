@@ -24,7 +24,6 @@ class PatientViewHolder(itemView: View, private val username: String, private va
 
         val db = Firebase.firestore
         val usersRef = db.collection(MyFirestoreReferences.USERS_COLLECTION)
-        val patientsRef = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)
         val patients = MyFirestoreReferences.PATIENTLIST_FIELD
         val userPatientList = ArrayList<String>()
 

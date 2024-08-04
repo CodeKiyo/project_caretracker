@@ -53,11 +53,6 @@ class HomeMenuPageFragment : Fragment(R.layout.homemenu_patient_list_fragment) {
         homemenuPatientListRecycler.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL,false)
 
-        // transition to userpage fragment
-//        view.findViewById<ImageView>(R.id.user_dp).setOnClickListener {
-//            val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.BottomNavigation)
-//            bottomNav?.selectedItemId = R.id.bottom_user
-//        }
         updateView()
         return view
     }

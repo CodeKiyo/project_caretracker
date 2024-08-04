@@ -23,7 +23,6 @@ class PatientViewActivity : AppCompatActivity()  {
         const val patientReligion : String = "PATIENT_RELIGION"
         const val patientSex : String = "PATIENT_SEX"
         const val patientCivilStatus : String = "PATIENT_CIVILSTATUS"
-        const val patientRoom : String = "PATIENT_ROOM"
     }
     private lateinit var patientinfoPage: PatientPersonalInfoBinding
     private lateinit var userId : String
@@ -70,17 +69,12 @@ class PatientViewActivity : AppCompatActivity()  {
         this.patientinfoPage.backbutton.setOnClickListener {
             finish()
         }
-
-
-        //this.patientinfoPage.patientSex.text = intent.getStringExtra(patientSex).toString()
-
     }
 
     fun getPatientDocumentIDs() {
         // Initialize Firestore
         val db = Firebase.firestore
         val name = intent.getStringExtra(patientName).toString()
-        var documentId: String? = null
 
         // Reference to the Patients collection
         val patientsCollection = db.collection(MyFirestoreReferences.PATIENT_COLLECTION)

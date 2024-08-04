@@ -102,7 +102,6 @@ class PrescriptionAdd : AppCompatActivity() {
                             .collection("Notification")
                             .add(notInfo)
                             .addOnSuccessListener {
-                                println(userId)
                                 Toast.makeText(
                                     this,
                                     "Prescription added successfully",

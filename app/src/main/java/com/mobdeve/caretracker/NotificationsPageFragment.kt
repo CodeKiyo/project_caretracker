@@ -46,11 +46,6 @@ class NotificationsPageFragment : Fragment(R.layout.homemenu_notification_list_f
         val view = inflater.inflate(R.layout.homemenu_notification_list_fragment, container, false)
 
         val userid = arguments?.getString(USER_ID).toString()
-        println(userid)
-
-        //val usernameTextView = view.findViewById<TextView>(R.id.)
-
-        //usernameTextView.text = username
 
         // Set up recyclerview layouts
         notificationsPageRecycler = view.findViewById(R.id.notifRecyclerView)
@@ -99,9 +94,7 @@ class NotificationsPageFragment : Fragment(R.layout.homemenu_notification_list_f
                                 dateFormat.format(dateObject)
                             }
 
-
                             for(element in sortedDateStrings) {
-                                println(element)
                                 for(document in result!!.documents) {
                                     if (document.get("date").toString() == element) {
                                         val newData = NotificationModel(

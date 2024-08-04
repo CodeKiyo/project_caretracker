@@ -1,10 +1,5 @@
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.caretracker.R
 

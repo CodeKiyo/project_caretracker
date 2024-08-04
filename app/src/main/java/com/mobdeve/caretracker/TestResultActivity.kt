@@ -12,13 +12,6 @@ import com.mobdeve.caretracker.databinding.TestResultsPageBinding
 
 class TestResultActivity : AppCompatActivity() {
     companion object{
-        const val resultComponents : String = "RESULT_COMPONENTS"
-        const val resultDate : String = "RESULT_DATE"
-        const val resultFindings : String = "RESULT_FINDINGS"
-        const val resultImage : String = "RESULT_IMAGE"
-        const val resultStatus : String = "RESULT_STATUS"
-        const val resultComments : String = "RESULT_COMMENTS"
-        const val testType : String = "TEST_TYPE"
         const val patientID : String = "PATIENT_ID"
     }
     private lateinit var testresultsPage: TestResultsPageBinding
@@ -48,7 +41,6 @@ class TestResultActivity : AppCompatActivity() {
         val patientID = intent.getStringExtra(patientID).toString()
         val patientRef = patientCollection.document(patientID)
         val testResultsRef = patientRef.collection("Test Results")
-        val finalRef = testResultsRef.document("CBC")
         val data = ArrayList<TestResultModel>()
         var index = 0
 
