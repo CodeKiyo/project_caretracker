@@ -4,12 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mobdeve.caretracker.databinding.PrescriptionPageBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class PrescriptionActivity : AppCompatActivity() {
     companion object {
@@ -20,7 +24,7 @@ class PrescriptionActivity : AppCompatActivity() {
     private lateinit var binding: PrescriptionPageBinding
     private lateinit var myPrescriptionAdapter: PrescriptionAdapter
     private val prescriptions = ArrayList<PrescriptionModel>() // To hold prescriptions and their IDs
-
+    private var userId: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = PrescriptionPageBinding.inflate(layoutInflater)
@@ -28,7 +32,7 @@ class PrescriptionActivity : AppCompatActivity() {
 
         // Initialize RecyclerView
         binding.prescriptionRecyclerview.layoutManager = LinearLayoutManager(this)
-
+        userId = intent.getStringExtra(USER_ID)
         // Fetch prescriptions from Firestore
         fetchPrescriptions()
 
@@ -95,6 +99,7 @@ class PrescriptionActivity : AppCompatActivity() {
                 putExtra("dosage", prescription.dosage)
                 putExtra("sig", prescription.sig)
                 putExtra(PATIENT_ID, intent.getStringExtra(PATIENT_ID))
+                putExtra(USER_ID, userId)
             }
             startActivity(intent)
         })
@@ -120,7 +125,33 @@ class PrescriptionActivity : AppCompatActivity() {
         prescriptionRef.delete()
             .addOnSuccessListener {
                 Log.d("PrescriptionActivity", "Prescription successfully deleted")
-                fetchPrescriptions() // Refresh the list after deletion
+
+                val patientRef = db.collection(MyFirestoreReferences.PATIENT_COLLECTION).document(patientID)
+
+                patientRef.get()
+                    .addOnSuccessListener { result ->
+                        val firestore = FirebaseFirestore.getInstance()
+
+                        val notInfo = hashMapOf(
+                            "date" to SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Date()).toString(),
+                            "type" to "Prescription",
+                            "name" to result.getString("patientName").toString(),
+                            "oper" to "Deleted"
+                        )
+
+                        firestore.collection("Users")
+                            .document(userId!!)
+                            .collection("Notification")
+                            .add(notInfo)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Prescription deleted successfully", Toast.LENGTH_SHORT).show()
+                                fetchPrescriptions() // Refresh the list after deletion
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(this, "Error adding notification: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                                e.printStackTrace()  // Log the stack trace for debugging
+                            }
+                    }
             }
             .addOnFailureListener { exception ->
                 Log.e("PrescriptionActivity", "Error deleting document: $exception")

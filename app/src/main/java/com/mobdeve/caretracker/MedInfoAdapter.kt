@@ -4,55 +4,45 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mobdeve.caretracker.databinding.MedInfoRecycleritemBinding
 
-class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val patientId: String, private val onDeleteClick: (String, String) -> Unit, private val userId: String) : RecyclerView.Adapter<MedInfoViewHolder>() {
+class MedInfoAdapter(
+    private val medInfos: List<MedInfoModel>,
+    private val patientId: String,
+    private val onDeleteClick: (String, String) -> Unit,
+    private val userId: String
+) : RecyclerView.Adapter<MedInfoAdapter.MedInfoViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedInfoViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.med_info_recycleritem, parent, false)
-        return MedInfoViewHolder(view)
+        val binding = MedInfoRecycleritemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MedInfoViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return medInfos.size;
-    }
+    override fun getItemCount(): Int = medInfos.size
 
     override fun onBindViewHolder(holder: MedInfoViewHolder, position: Int) {
         val medInfo = medInfos[position]
-        holder.bindData(medInfo)
+        holder.bind(medInfo, position)
 
-        if (medInfo.patientWeight == "")
-            holder.weightLL.visibility = View.GONE
-
-        if (medInfo.patientHeartRate == "")
-            holder.heartRateLL.visibility = View.GONE
-
-        if (medInfo.patientBloodPressure == "")
-            holder.bloodPressureLL.visibility = View.GONE
-
-        if (medInfo.patientBodyTemperature == "")
-            holder.bodyTempLL.visibility = View.GONE
-
-        if (medInfo.patientRespirationRate == "")
-            holder.respRateLL.visibility = View.GONE
-
-        if (medInfo.patientChiefComplaint == "")
-            holder.chiefCompLL.visibility = View.GONE
-
-        if (medInfo.patientObjectives == "")
-            holder.objLL.visibility = View.GONE
-
-        if (medInfo.patientDiagnosis == "")
-            holder.diagLL.visibility = View.GONE
-
-        if (medInfo.patientPlan == "")
-            holder.planLL.visibility = View.GONE
-
-        if (medInfo.patientComments == "")
-            holder.commLL.visibility = View.GONE
+        // Visibility settings
+        holder.binding.apply {
+            weightLL.visibility = if (medInfo.patientWeight.isEmpty()) View.GONE else View.VISIBLE
+            heartRateLL.visibility = if (medInfo.patientHeartRate.isEmpty()) View.GONE else View.VISIBLE
+            bloodPressureLL.visibility = if (medInfo.patientBloodPressure.isEmpty()) View.GONE else View.VISIBLE
+            bodyTempLL.visibility = if (medInfo.patientBodyTemperature.isEmpty()) View.GONE else View.VISIBLE
+            respRateLL.visibility = if (medInfo.patientRespirationRate.isEmpty()) View.GONE else View.VISIBLE
+            chiefCompLL.visibility = if (medInfo.patientChiefComplaint.isEmpty()) View.GONE else View.VISIBLE
+            objLL.visibility = if (medInfo.patientObjectives.isEmpty()) View.GONE else View.VISIBLE
+            diagLL.visibility = if (medInfo.patientDiagnosis.isEmpty()) View.GONE else View.VISIBLE
+            planLL.visibility = if (medInfo.patientPlan.isEmpty()) View.GONE else View.VISIBLE
+            commLL.visibility = if (medInfo.patientComments.isEmpty()) View.GONE else View.VISIBLE
+        }
 
         // Edit Button Functionality
-        holder.editButt.setOnClickListener() {
-            val intent = Intent(holder.editButt.context, MedInfoEditActivity::class.java).apply {
+        holder.binding.editButt.setOnClickListener {
+            val intent = Intent(holder.itemView.context, MedInfoEditActivity::class.java).apply {
                 putExtra("medinfoId", medInfo.id)
                 putExtra(MyFirestoreReferences.PATIENTWEIGHT_FIELD, medInfo.patientWeight)
                 putExtra(MyFirestoreReferences.PATIENTHEARTRATE_FIELD, medInfo.patientHeartRate)
@@ -67,11 +57,32 @@ class MedInfoAdapter (private val medInfos: List<MedInfoModel>, private val pati
                 putExtra("PATIENT_ID", patientId)
                 putExtra("USER_ID", userId)
             }
-            holder.editButt.context.startActivity(intent)
+            holder.itemView.context.startActivity(intent)
         }
 
-        holder.delButt.setOnClickListener() {
+        holder.binding.deleteButt.setOnClickListener {
             onDeleteClick(medInfo.id, userId)
+        }
+    }
+
+    class MedInfoViewHolder(val binding: MedInfoRecycleritemBinding) : RecyclerView.ViewHolder(binding.root) {
+        private val recordNo: TextView = itemView.findViewById(R.id.record_counter)
+
+        fun bind(medInfo: MedInfoModel, position: Int) {
+            recordNo.text = "Record #${position + 1}"
+            binding.apply {
+                date.text = medInfo.patientDate
+                weight.text = medInfo.patientWeight
+                heartRate.text = medInfo.patientHeartRate
+                bloodPressure.text = medInfo.patientBloodPressure
+                bodyTemp.text = medInfo.patientBodyTemperature
+                respRate.text = medInfo.patientRespirationRate
+                chiefComp.text = medInfo.patientChiefComplaint
+                objective.text = medInfo.patientObjectives
+                diagnosis.text = medInfo.patientDiagnosis
+                plan.text = medInfo.patientPlan
+                comment.text = medInfo.patientComments
+            }
         }
     }
 }
