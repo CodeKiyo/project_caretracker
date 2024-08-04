@@ -60,7 +60,7 @@ class TestResultActivity : AppCompatActivity() {
                     document.get(resultFindings).toString(),
                     document.get(resultComponents).toString(),
                     document.get(resultComments).toString(),
-                    R.drawable.default_photo)
+                    document.get(resultImage).toString())
                 data.add(newData)
                 System.out.println("test")
             }

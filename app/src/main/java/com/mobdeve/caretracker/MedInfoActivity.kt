@@ -41,7 +41,6 @@ class MedInfoActivity : AppCompatActivity() {
         // Update verticalRecyclerView
         fetchMedInfo()
 
-        Toast.makeText(this, intent.getStringExtra(USER_ID).toString(), Toast.LENGTH_SHORT).show()
         medinfoPage.addButt.setOnClickListener() {
             val patientID = intent.getStringExtra(PATIENT_ID)
             val userID = intent.getStringExtra(USER_ID)
