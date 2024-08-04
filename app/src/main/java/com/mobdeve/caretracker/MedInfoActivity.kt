@@ -63,7 +63,7 @@ class MedInfoActivity : AppCompatActivity() {
         val medInfoRef = patientRef.collection("Medical Information")
 
         val data = ArrayList<MedInfoModel>()
-        val index = 0
+        var index = 0
 
         medInfoRef.get()
             .addOnSuccessListener { result ->
@@ -90,7 +90,7 @@ class MedInfoActivity : AppCompatActivity() {
                             document.id
                         )
                         data.add(newData)
-                        System.out.println("test")
+                        index++
                     }
                     medinfoRecyclerView.adapter =
                         MedInfoAdapter(data, intent.getStringExtra(PATIENT_ID).toString(), { medInfoId, userId ->
