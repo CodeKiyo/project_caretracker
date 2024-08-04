@@ -1,9 +1,15 @@
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.graphics.Matrix
+import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 import com.mobdeve.caretracker.R
+import com.squareup.picasso.Picasso
 
 class TestResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val testType: TextView = itemView.findViewById(R.id.test_type)
@@ -21,6 +27,8 @@ class TestResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         this.resultStatus.text = model.resultStatus
         this.comments.text = model.comments
         this.keyFindings.text = model.keyFindings
-        this.imageresult.setImageResource(R.drawable.default_photo)
+        if (model.imageResId.isNotEmpty()) {
+            Picasso.get().load(model.imageResId).into(this.imageresult)
+        }
     }
 }
