@@ -1,4 +1,5 @@
 data class TestResultModel(
+    val recordNo: Int,
     val testType: String,
     val testDate: String,
     val resultStatus: String,

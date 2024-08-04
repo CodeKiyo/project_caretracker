@@ -50,10 +50,12 @@ class TestResultActivity : AppCompatActivity() {
         val testResultsRef = patientRef.collection("Test Results")
         val finalRef = testResultsRef.document("CBC")
         val data = ArrayList<TestResultModel>()
+        var index = 0
 
         testResultsRef.get().addOnSuccessListener { result ->
             for (document in result!!.documents) {
                 val newData = TestResultModel(
+                    index + 1,
                     document.id,
                     document.get(resultDate).toString(),
                     document.get(resultStatus).toString(),
@@ -62,7 +64,7 @@ class TestResultActivity : AppCompatActivity() {
                     document.get(resultComments).toString(),
                     document.get(resultImage).toString())
                 data.add(newData)
-                System.out.println("test")
+                index++
             }
             testResultsRecyclerView.adapter = TestResultAdapter(data)
             testResultsRecyclerView.adapter?.notifyDataSetChanged()
