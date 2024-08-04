@@ -13,19 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class SettingsPageFragment : Fragment(R.layout.homemenu_settings_fragment) {
-    companion object{
-        const val TAG = "SettingsPageFragment"
-        private const val USER_ID = "USER_ID"
-    }
-
-    fun newInstance(username: String): SettingsPageFragment {
-        val args = Bundle()
-        args.putString(USER_ID, username)
-        return SettingsPageFragment().apply {
-            arguments = args
-        }
-    }
-
     @SuppressLint("WrongThread")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,13 +20,6 @@ class SettingsPageFragment : Fragment(R.layout.homemenu_settings_fragment) {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.homemenu_settings_fragment, container, false)
-
-        val username = arguments?.getString(USER_ID)
-
-        //val usernameTextView = view.findViewById<TextView>(R.id.)
-
-        //usernameTextView.text = username
-
         // Set up recyclerview layouts
         val logoutButton = view.findViewById<TextView>(R.id.logout_button)
         logoutButton.setOnClickListener {
@@ -56,13 +36,6 @@ class SettingsPageFragment : Fragment(R.layout.homemenu_settings_fragment) {
             val alert = builder.create()
             alert.show()
         }
-
-        updateView()
         return view
     }
-
-    private fun updateView() {
-
-    }
-
 }

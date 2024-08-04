@@ -63,7 +63,7 @@ class HomeMenuPageActivity : AppCompatActivity()  {
                 }
                 R.id.bottom_settings -> {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-                    replaceFragment(SettingsPageFragment().newInstance("Franco Carino"))
+                    replaceFragment(SettingsPageFragment())
                     true
                 }
                 else -> false
