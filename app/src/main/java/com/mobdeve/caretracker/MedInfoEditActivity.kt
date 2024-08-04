@@ -28,8 +28,8 @@ class MedInfoEditActivity : AppCompatActivity()  {
     private var userId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = MedInfoEditPageBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = MedInfoEditPageBinding.inflate(layoutInflater)
         setContentView(binding.root) // Ensure this is the correct layout
 
         firestore = FirebaseFirestore.getInstance()
